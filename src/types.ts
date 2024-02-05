@@ -1,3 +1,7 @@
+export type LibreApiLink = `https://api${string}.libreview.io`;
+
+export type TrendArrows = "⬇️" | "↘️" | "➡️" | "↗️" | "⬆️"
+
 export interface Credentials {
     email: string
     password: string
@@ -17,4 +21,11 @@ export interface LibreOptions {
     body?: any
 };
 
-export type LibreApiLink = `https://api${string}.libreview.io`;
+export interface BloodGlucoseData {
+    mesurement: {
+        value: number
+        unit: "mg/dl" | "mmol"
+    },
+    status: "low" | "inRange" | "high",
+    trend: TrendArrows
+}

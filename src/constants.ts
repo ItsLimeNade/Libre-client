@@ -1,4 +1,4 @@
-import { LibreApiLink, LibreOptions } from "./types";
+import { LibreApiLink, LibreOptions, TrendArrows } from "./types";
 
 export const libreApiLink: LibreApiLink = `https://api.libreview.io`;
 
@@ -13,3 +13,5 @@ export const options: LibreOptions = {
         version: '4.7.0',
     },
 };
+
+export const trendArray: Array<TrendArrows> =  ["⬇️", "↘️", "➡️", "↗️", "⬆️"]
