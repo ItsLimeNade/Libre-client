@@ -9,6 +9,7 @@ export interface Credentials {
 
 export interface LibreOptions {
     method: 'POST' | 'GET',
+    mode: "cors"
     headers: {
         'accept-encoding': 'gzip'
         'cache-control': 'no-cache'
