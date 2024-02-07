@@ -18,8 +18,8 @@ export async function getReading(): Promise<BloodGlucoseData> {
             unit: "mg/dl"
         },
         status:
-        $.data[0].glucoseMeasurement.isHigh ? "high" 
-        :  $.data[0].glucoseMeasurement.isLow ? "low"
+        $.data[0].glucoseMeasurement.ValueInMgPerDl > 180 ? "high" 
+        :  $.data[0].glucoseMeasurement.ValueInMgPerDl < 70 ? "low"
         : "inRange",
         trend: trendArray[$.data[0].glucoseMeasurement.TrendArrow - 1]
     }
