@@ -1,8 +1,10 @@
-import { libreApiLink, options, trendArray } from "../constants"
+import { libreApiLink, options, trendArray } from "../globals"
 import { BloodGlucoseData } from "../types"
 import { userToken } from ".."
 
 export async function getReading(): Promise<BloodGlucoseData> {
+
+    if (!userToken) throw Error("Error: Attempted to get blood glucose reading without beeing authenticated.")
 
     options.method = 'GET'
     options.headers.authorization = `Bearer ${userToken}`
@@ -18,8 +20,8 @@ export async function getReading(): Promise<BloodGlucoseData> {
             unit: "mg/dl"
         },
         status:
-        $.data[0].glucoseMeasurement.ValueInMgPerDl > 180 ? "high" 
-        :  $.data[0].glucoseMeasurement.ValueInMgPerDl < 70 ? "low"
+        $.data[0].glucoseMeasurement.ValueInMgPerDl > $.data[0].targetHigh ? "high" 
+        :  $.data[0].glucoseMeasurement.ValueInMgPerDl < $.data[0].targetLow ? "low"
         : "inRange",
         trend: trendArray[$.data[0].glucoseMeasurement.TrendArrow - 1]
     }

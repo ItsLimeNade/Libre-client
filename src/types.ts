@@ -2,6 +2,9 @@ export type LibreApiLink = `https://api${string}.libreview.io`;
 
 export type TrendArrows = "⬇️" | "↘️" | "➡️" | "↗️" | "⬆️"
 
+export type AuthResponse = {
+    authenticated: boolean
+}
 export interface Credentials {
     email: string
     password: string

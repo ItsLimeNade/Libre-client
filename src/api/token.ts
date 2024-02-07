@@ -1,4 +1,4 @@
-import { libreApiLink, options } from "../constants";
+import { libreApiLink, options } from "../globals";
 import { Credentials } from "../types";
 
 export async function token(credentials: Credentials) {
@@ -10,6 +10,7 @@ export async function token(credentials: Credentials) {
     .then(res => res.json())
     .catch(err => console.error(err))
 
+    if ($.status === 2) return {error: "notAuthenticated"}
     return $.data.authTicket.token
 
 }
