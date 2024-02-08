@@ -14,5 +14,5 @@ export async function init(credentials: Credentials): Promise<AuthResponse> {
 
     //? if the response does not contain an error it only contains the token as a string.
     userToken = response // response = token: string
-    return {authenticated: true}
+    return {authenticated: true, token: userToken}
 }

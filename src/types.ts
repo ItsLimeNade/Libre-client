@@ -4,6 +4,7 @@ export type TrendArrows = "⬇️" | "↘️" | "➡️" | "↗️" | "⬆️"
 
 export type AuthResponse = {
     authenticated: boolean
+    token?: string
 }
 export interface Credentials {
     email: string
