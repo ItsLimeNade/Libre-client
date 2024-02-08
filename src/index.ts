@@ -16,3 +16,7 @@ export async function init(credentials: Credentials): Promise<AuthResponse> {
     userToken = response // response = token: string
     return {authenticated: true, token: userToken}
 }
+
+export function setToken(token: string): void {
+    userToken = token
+}

@@ -15,8 +15,8 @@ Then you need to initialize it :
 ```ts
 import { init, getReading } from 'libre-client';
 
-await init({email:"your@email.com", password:"YourPassWord!"}) // Initialize the package
-const response: BloodGlucoseData = await getReading() //get the Blood Glucose reading
+await init({email:"your@email.com", password:"YourPassWord!"}); // Initialize the package
+const response = await getReading(); //get the Blood Glucose reading
 ```
 ### The data will be recieved in this format: 
 ```ts
@@ -28,6 +28,12 @@ const response: BloodGlucoseData = await getReading() //get the Blood Glucose re
   status: "low" | "inRange" | "high",
   trend: "⬇️" | "↘️" | "➡️" | "↗️" | "⬆️"
 }
+```
+### If you already have an authentication token you can manualy set it:
+```ts
+import { setToken } from 'libre-client';
+
+setToken("yourTokenHere");
 ```
 ### That's it!
 #### More features to come soon!
