@@ -5,6 +5,7 @@ import { getReading } from "./api/reading";
 export { getReading };
 
 export let userToken: string;
+export let manualToken: string;
 let userCredentials: Credentials
 
 export async function init(credentials: Credentials): Promise<AuthResponse> {
@@ -18,5 +19,5 @@ export async function init(credentials: Credentials): Promise<AuthResponse> {
 }
 
 export function setToken(token: string): void {
-    userToken = token
+    manualToken = token
 }

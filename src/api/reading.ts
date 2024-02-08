@@ -1,13 +1,13 @@
 import { libreApiLink, options, trendArray } from "../globals"
 import { BloodGlucoseData } from "../types"
-import { userToken } from ".."
+import { manualToken, userToken } from ".."
 
 export async function getReading(): Promise<BloodGlucoseData> {
 
-    if (!userToken) throw Error("Error: Attempted to get blood glucose reading without beeing authenticated.")
+    if (!userToken && !manualToken) throw Error("Error: Attempted to get blood glucose reading without beeing authenticated.")
 
     options.method = 'GET'
-    options.headers.authorization = `Bearer ${userToken}`
+    options.headers.authorization = `Bearer ${userToken? userToken: manualToken}`
     options.body = undefined
 
     const $: any = await fetch(`${libreApiLink}/llu/connections`, options)

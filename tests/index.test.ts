@@ -1,8 +1,14 @@
 import { type Credentials } from "../src/types";
-import { init, getReading } from "../src";
+import { init, getReading, setToken } from "../src";
 
 test("Not Authenticated", async () => {
     expect((await init({email:"...", password:"..."})).authenticated).toBe(false)
+})
+
+test("Set token works", async () => {
+    setToken("yourTokenHere")
+    const reading = await getReading()
+    expect(() => Number(reading.mesurement.unit)).not.toThrow()
 })
 
 test("API works", async () => {
